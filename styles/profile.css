@@ -1,40 +1,45 @@
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background: #f9f9f9;
+    background-color: #f9f9f9;
     font-family: "Chakra Petch", sans-serif;
     color: #333;
+    line-height: 1.5;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
 }
 
 header {
-    background: #8B0000;
+    background-color: #8B0000;
 }
 
-header .header-inner {
+.header-inner {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
+    justify-content: center;
 }
 
 .header-pic {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 15px;
-}
-
-header h1 {
-    flex: 1;
-    font-size: 1.5rem;
-    color: #fff;
+    margin-right: 1rem;
 }
 
 .hamburger {
@@ -47,67 +52,83 @@ header h1 {
 }
 
 .navbar {
-    background: #333;
+    background-color: #333;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 8px 0;
+    gap: 1rem;
+    padding: 0.5rem 0;
 }
 
 .navbar a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    transition: background-color 0.2s;
 }
 
-.navbar a:hover {
-    background: #8B0000;
+.navbar a:hover,
+.navbar a.active {
+    background-color: #8B0000;
+    border-radius: 4px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+
+.page-title {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-align: center;
 }
 
 .cards-grid {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 1rem;
 }
 
 .card {
-    background: #fff;
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
 .card h2 {
-    background: #8B0000;
+    background-color: #8B0000;
     color: #fff;
-    text-align: center;
-    padding: 10px;
     margin: 0;
+    padding: 0.75rem;
+    font-size: 1.25rem;
+    text-align: center;
 }
 
 .card-body {
-    padding: 20px;
+    padding: 1rem;
 }
 
 .card-body ul {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+}
+
+.card-body li {
+    margin-bottom: 0.5rem;
 }
 
 .card-body img {
     width: 100%;
+    height: auto;
     border-radius: 4px;
 }
 
 .caption {
+    margin-top: 0.5rem;
     text-align: center;
-    margin-top: 10px;
-    color: #333;
+    font-size: 0.9rem;
 }
 
 .certificate-card {
@@ -117,53 +138,68 @@ header h1 {
 .certificate-card .filter-tabs {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    padding: 10px 0;
+    gap: 0.5rem;
+    padding: 0.75rem 0;
+    background-color: #ececec;
 }
 
 .filter-tabs .tab {
-    background: #333;
+    background-color: #333;
     color: #fff;
     border: none;
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
     cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.filter-tabs .tab:hover {
+    opacity: 0.8;
 }
 
 .filter-tabs .active {
-    background: #8B0000;
+    background-color: #8B0000;
 }
 
 .courses-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 20px;
+    gap: 0.5rem;
+    padding: 1rem;
 }
 
 .course {
-    background: #8B0000;
+    background-color: #8B0000;
     color: #fff;
     border: none;
-    padding: 12px 0;
+    padding: 0.75rem 0;
     font-weight: 600;
     cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.course:hover {
+    opacity: 0.9;
 }
 
 .course.disabled {
-    background: #ececec;
+    background-color: #ececec;
     color: #333;
     cursor: default;
+    opacity: 1;
 }
 
 footer {
-    background: #8B0000;
+    background-color: #8B0000;
     color: #fff;
     text-align: center;
-    padding: 15px 0;
+    padding: 1rem;
+}
+
+footer p+p {
+    margin-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
-
     .cards-grid {
         grid-template-columns: 1fr;
     }
@@ -175,4 +211,53 @@ footer {
     .navbar {
         display: none;
     }
+}
+
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.filter-tabs .tab {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.filter-tabs .tab.active,
+.filter-tabs .tab:hover {
+    background-color: #8B0000;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+}
+
+.course {
+    background-color: #8B0000;
+    color: #fff;
+    border: none;
+    padding: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: default;
+}
+
+.course.completed {
+    background-color: #fff;
+    color: #333;
+    border: 2px solid #8B0000;
+}
+
+#totalCredits {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 1rem;
 }

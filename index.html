@@ -14,14 +14,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
-    <script defer src="./scripts/getdates.js"></script>
+    <script defer src="./scripts/getDates.js"></script>
+    <script defer src="./scripts/courseListArray.js"></script>
 </head>
 
 <body>
     <header>
         <div class="header-inner">
             <img src="./images/profile.webp" alt="Matt Anderson" class="header-pic">
-            <h1>Matthew B. Anderson</h1>
+            <h2>Matthew B. Anderson</h2>
             <button class="hamburger" aria-label="Toggle menu">☰</button>
         </div>
         <nav class="navbar">
@@ -33,44 +34,43 @@
         </nav>
     </header>
 
-    <main class="cards-grid">
-        <section class="card">
-            <h2>Course Work</h2>
-            <div class="card-body">
-                <ul>
-                    <li>•</li>
-                    <li>•</li>
-                    <li>•</li>
-                </ul>
-            </div>
-        </section>
+    <main>
+        <h1 class="page-title">Home</h1>
+        <div class="cards-grid">
+            <section class="card">
+                <h2>Course Work</h2>
+                <div class="card-body">
+                    <ul>
+                        <li>•</li>
+                        <li>•</li>
+                        <li>•</li>
+                    </ul>
+                </div>
+            </section>
 
-        <section class="card">
-            <h2>Ohio, United States of America</h2>
-            <div class="card-body">
-                <img src="./images/255px-Flag_of_the_United_States_(Pantone).svg.png" alt="United States Flag">
-                <p class="caption">Official Flag of the United States of America</p>
-            </div>
-        </section>
+            <section class="card">
+                <h2>Ohio, United States of America</h2>
+                <div class="card-body">
+                    <img src="./images/255px-Flag_of_the_United_States_(Pantone).svg.png" alt="United States Flag">
+                    <p class="caption">Official Flag of the United States of America</p>
+                </div>
+            </section>
 
-        <section class="card certificate-card">
-            <h2>Web and Computer Programming Certificate</h2>
+            <section class="card certificate-card">
+                <h2>Web and Computer Programming Certificate</h2>
 
-            <div class="filter-tabs">
-                <button class="tab active">All</button>
-                <button class="tab">CSE</button>
-                <button class="tab">WDD</button>
-            </div>
+                <div class="filter-tabs">
+                    <button class="tab active" data-filter="All">All</button>
+                    <button class="tab" data-filter="CSE">CSE</button>
+                    <button class="tab" data-filter="WDD">WDD</button>
+                </div>
 
-            <div class="courses-grid">
-                <button class="course">CSE 110</button>
-                <button class="course">WDD 130</button>
-                <button class="course">CSE 111</button>
-                <button class="course disabled">CSE 210</button>
-                <button class="course">WDD 131</button>
-                <button class="course disabled">WDD 231</button>
-            </div>
-        </section>
+                <div class="courses-grid" id="coursesGrid">
+                </div>
+
+                <p id="totalCredits">Total Credits: 0</p>
+            </section>
+        </div>
     </main>
 
     <footer>
