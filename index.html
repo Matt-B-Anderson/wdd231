@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WDD 231 – Web Frontend Development I – Matthew B. Anderson</title>
+    <meta name="description" content="WDD 231 – Web Frontend Development I – Matthew Anderson Home page">
+    <meta name="author" content="Matthew Anderson">
+
+    <link rel="stylesheet" href="./styles/profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <script defer src="./scripts/getdates.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-inner">
+            <img src="./images/profile.webp" alt="Matt Anderson" class="header-pic">
+            <h1>Matthew B. Anderson</h1>
+            <button class="hamburger" aria-label="Toggle menu">☰</button>
+        </div>
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Chamber</a>
+            <a href="#">Final</a>
+            <a href="#">GitHub Profile</a>
+            <a href="#">LinkedIn</a>
+        </nav>
+    </header>
+
+    <main class="cards-grid">
+        <section class="card">
+            <h2>Course Work</h2>
+            <div class="card-body">
+                <ul>
+                    <li>•</li>
+                    <li>•</li>
+                    <li>•</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Ohio, United States of America</h2>
+            <div class="card-body">
+                <img src="./images/255px-Flag_of_the_United_States_(Pantone).svg.png" alt="United States Flag">
+                <p class="caption">Official Flag of the United States of America</p>
+            </div>
+        </section>
+
+        <section class="card certificate-card">
+            <h2>Web and Computer Programming Certificate</h2>
+
+            <div class="filter-tabs">
+                <button class="tab active">All</button>
+                <button class="tab">CSE</button>
+                <button class="tab">WDD</button>
+            </div>
+
+            <div class="courses-grid">
+                <button class="course">CSE 110</button>
+                <button class="course">WDD 130</button>
+                <button class="course">CSE 111</button>
+                <button class="course disabled">CSE 210</button>
+                <button class="course">WDD 131</button>
+                <button class="course disabled">WDD 231</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>©<span id="currentyear"></span> Matthew Brian Anderson USA</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+
+</html>
