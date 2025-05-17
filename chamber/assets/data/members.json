@@ -1,0 +1,58 @@
+[
+	{
+		"name": "Alpha Boutique",
+		"address": "123 Market St",
+		"phone": "800-555-0100",
+		"url": "https://alpha.example.com",
+		"logo": "alpha.png",
+		"level": 3
+	},
+	{
+		"name": "Beta Grocers",
+		"address": "45 Commerce Ave",
+		"phone": "800-555-0200",
+		"url": "https://beta.example.com",
+		"logo": "beta.png",
+		"level": 2
+	},
+	{
+		"name": "Gamma Tech",
+		"address": "78 Innovation Dr",
+		"phone": "800-555-0300",
+		"url": "https://gamma.example.com",
+		"logo": "gamma.png",
+		"level": 1
+	},
+	{
+		"name": "Delta Services",
+		"address": "9 Services Rd",
+		"phone": "800-555-0400",
+		"url": "https://delta.example.com",
+		"logo": "delta.png",
+		"level": 2
+	},
+	{
+		"name": "Epsilon Media",
+		"address": "101 Broadcast Ln",
+		"phone": "800-555-0500",
+		"url": "https://epsilon.example.com",
+		"logo": "epsilon.png",
+		"level": 3
+	},
+	{
+		"name": "Zeta Consulting",
+		"address": "222 Advisory Blvd",
+		"phone": "800-555-0600",
+		"url": "https://zeta.example.com",
+		"logo": "zeta.png",
+		"level": 1
+	},
+	{
+		"name": "Eta Crafts",
+		"address": "333 Artisan Way",
+		"phone": "800-555-0700",
+		"url": "https://eta.example.com",
+		"logo": "eta.png",
+		"level": 2
+	}
+]

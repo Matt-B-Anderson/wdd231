@@ -1,0 +1,271 @@
+:root {
+    --background-color: #f9f9f9;
+    --primary-color: #8B0000;
+    --secondary-color: #333;
+    --light-bg: #ddd;
+    --card-bg: #eee;
+    --text-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.site-header {
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 0.5rem;
+}
+
+.branding h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.branding p {
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.nav-list a.active {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.hero {
+    position: relative;
+}
+
+.hero img {
+    width: 100%;
+    display: block;
+}
+
+.cta-button {
+    position: absolute;
+    bottom: 1rem;
+    right: 2%;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+main {
+    padding: 2% 2%;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.panels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.panel {
+    background: var(--light-bg);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.panel h3 {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.5rem;
+    font-size: 1.125rem;
+}
+
+.panel-content,
+.weather-info,
+.forecast-list {
+    padding: 1rem;
+}
+
+.spotlights .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.view-toggle {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.view-toggle button {
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border: 1px solid var(--primary-color);
+    background: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.view-toggle button:hover {
+    background: var(--light-bg);
+}
+
+.directory.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.directory.list {
+    display: block;
+    padding: 1rem;
+}
+
+.directory.list .card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.directory.list .card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 4px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.card h4,
+.card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    margin: 0.25rem 0;
+}
+
+.site-footer {
+    background: var(--light-bg);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1.5rem 2%;
+    gap: 1rem;
+}
+
+.footer-contact p,
+.footer-info p {
+    margin: 0.25rem 0;
+}
+
+.footer-social a {
+    margin-right: 0.5rem;
+}
+
+body.dark-mode {
+    --background-color: var(--secondary-color);
+    --text-color: var(--background-color);
+    --light-bg: #444;
+    --card-bg: #555;
+}
+
+body.dark-mode {
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+body.dark-mode .site-header,
+body.dark-mode .site-footer,
+body.dark-mode .panel,
+body.dark-mode .card {
+    background: var(--card-bg);
+}
+
+body.dark-mode .nav-list a {
+    color: var(--text-color);
+}
+
+body.dark-mode .nav-list a.active {
+    border-bottom-color: var(--text-color);
+}
+
+body.dark-mode .panel h3,
+body.dark-mode .cta-button {
+    background: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-list {
+        margin-top: 0.5rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .cta-button {
+        right: 1rem;
+        bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+}

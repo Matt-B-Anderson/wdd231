@@ -1,0 +1,106 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timbuktu Chamber of Commerce</title>
+    <meta name="description" content="Resource hub for local business in Timbuktu">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="Timbuktu Chamber of Commerce">
+    <meta property="og:description" content="Local events, business directory, and resources for Timbuktu businesses">
+    <meta property="og:image" content="/images/og-image.png">
+    <meta property="og:url" content="https://yourdomain.com/chamber/index.html">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/scripts/script.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="/images/logo.png" alt="Timbuktu Chamber Logo">
+            <div class="branding">
+                <h1>Timbuktu</h1>
+                <p>Chamber of Commerce</p>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="discover.html">Discover</a></li>
+            </ul>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">☾</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <img src="/images/hero.jpg" alt="scalable, responsive hero image">
+        <a href="#" class="cta-button">Keynote Tickets</a>
+    </section>
+
+    <main>
+        <h2>Home</h2>
+        <section class="panels">
+            <article class="panel events">
+                <h3>Events</h3>
+                <div class="panel-content">
+                </div>
+            </article>
+            <article class="panel weather-current">
+                <h3>Current Weather</h3>
+                <div class="weather-info">
+                    <img src="/images/weather-icon.png" alt="Cloudy">
+                    <p><strong>75° F</strong></p>
+                    <p>Partly Cloudy</p>
+                    <p>High: 85°</p>
+                    <p>Low: 52°</p>
+                    <p>Humidity: 34%</p>
+                    <p>Sunrise: 7:30am</p>
+                    <p>Sunset: 9:59pm</p>
+                </div>
+            </article>
+            <article class="panel weather-forecast">
+                <h3>Weather Forecast</h3>
+                <div class="forecast-list">
+                    <p>Today: <strong>90°F</strong></p>
+                    <p>Wednesday: <strong>89°F</strong></p>
+                    <p>Thursday: <strong>68°F</strong></p>
+                </div>
+            </article>
+        </section>
+
+        <section class="view-toggle">
+            <button id="gridView">Grid View</button>
+            <button id="listView">List View</button>
+        </section>
+
+        <section id="directory" class="directory grid"></section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-contact">
+            <p><strong>Timbuktu Chamber of Commerce</strong></p>
+            <p>10 Rue De La Paix</p>
+            <p>Timbuktu, Mali 999</p>
+            <p><a href="mailto:info@timbuktucc.org">info@timbuktucc.org</a></p>
+            <p>(223) 555-2300</p>
+        </div>
+        <div class="footer-social">
+            <a href="#"><img src="/images/youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="/images/twitter.svg" alt="Twitter"></a>
+            <a href="#"><img src="/images/linkedin.svg" alt="LinkedIn"></a>
+        </div>
+        <div class="footer-info">
+            <p>WDD231 Class Project | Marie Martínez</p>
+            <p>&copy; <span id="year"></span> Timbuktu Chamber of Commerce</p>
+            <p>Last Modification: <span id="lastMod"></span></p>
+        </div>
+    </footer>
+</body>
+
+</html>
