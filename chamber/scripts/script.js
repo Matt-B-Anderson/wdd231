@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let members = [];
     try {
-        const res = await fetch('/assets/data/members.json');
+        const res = await fetch('https://matt-b-anderson.github.io/wdd231/chamber/assets/data/members.json');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         members = await res.json();
     } catch (err) {
