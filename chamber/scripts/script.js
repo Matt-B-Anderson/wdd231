@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         directory.className = `directory ${view}`;
         directory.innerHTML = members.map(m => `
             <article class="card">
-                <img src="/assets/images/${m.logo}" alt="${m.name} logo">
+                <img src="images/${m.logo}" alt="${m.name} logo">
                 <h3>${m.name}</h3>
                 <p>${m.address}</p>
                 <p><strong>Phone:</strong> ${m.phone}</p>
