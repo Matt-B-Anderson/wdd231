@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    const currentPage = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-list a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage) link.classList.add('active');
+        else link.classList.remove('active');
+    });
+
     const yearEl = document.getElementById('year');
     const lastModEl = document.getElementById('lastMod');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -22,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             menuToggle.setAttribute('aria-expanded', open);
         });
     }
+
 
     const eventsList = document.getElementById('eventsList');
     if (eventsList) {
