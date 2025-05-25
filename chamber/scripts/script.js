@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (directory) {
         let members2 = [];
         try {
-            const res = await fetch('/scripts/members.json');
+            const res = await fetch('assets/data/members.json');
             if (res.ok) members2 = await res.json();
         } catch { }
         const grid = document.getElementById('gridView');
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             directory.className = `directory ${v}`;
             directory.innerHTML = members2.map(m =>
                 `<article class="card">` +
-                `<img src="/images/${m.logo}" alt="${m.name} logo">` +
+                `<img src="images/${m.logo}" alt="${m.name} logo">` +
                 `<h3>${m.name}</h3>` +
                 `<p>${m.address}</p>` +
                 `<p><strong>Phone:</strong> ${m.phone}</p>` +
