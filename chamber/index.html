@@ -1,4 +1,3 @@
-<!-- home.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,14 +7,16 @@
     <title>Timbuktu Chamber of Commerce</title>
     <meta name="description" content="Resource hub for local business in Timbuktu">
     <meta name="author" content="Matthew Anderson">
-    <meta property="og:title" content="Timbuktu Chamber of Commerce">
-    <meta property="og:description" content="Local events, business directory, and resources for Timbuktu businesses">
+
+    <meta property="og:title" content="Timbuktu Chamber of Commerce Home Page">
+    <meta property="og:description" content="Timbuktu Chamber of Commerce Home Page">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://matt-b-anderson.github.io/wdd231/chamber/images/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://matt-b-anderson.github.io/wdd231/chamber/directory.html">
+    <meta property="og:url" content="https://matt-b-anderson.github.io/wdd231/chamber/index.html">
     <meta property="fb:app_id" content="Timbuktu">
+
     <link rel="icon" href="https://matt-b-anderson.github.io/wdd231/chamber/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/styles.css">
@@ -24,9 +25,9 @@
 <body>
     <header class="site-header">
         <div class="logo">
-            <img src="images/logo.png" alt="Timbuktu Chamber Logo">
+            <img src="https://matt-b-anderson.github.io/wdd231/chamber/images/logo.png" alt="Timbuktu Chamber Logo">
             <div class="branding">
-                <h2>Timbuktu</h2>
+                <h1>Timbuktu</h1>
                 <p>Chamber of Commerce</p>
             </div>
         </div>
@@ -45,47 +46,31 @@
     </header>
 
     <section class="hero">
-        <img src="images/hero.jpg" alt="scalable, responsive hero image">
-        <a href="#" class="cta-button">Keynote Tickets</a>
+        <img src="https://matt-b-anderson.github.io/wdd231/chamber/images/hero.jpg" alt="Hero Image">
+        <a href="join.html" class="cta-button">Join the Chamber</a>
     </section>
 
     <main>
-        <h1>Directory</h1>
+        <h1>Home</h1>
         <section class="panels">
             <article class="panel events">
                 <h3>Events</h3>
-                <div class="panel-content">
-                </div>
+                <div id="eventsList"></div>
             </article>
             <article class="panel weather-current">
                 <h3>Current Weather</h3>
-                <div class="weather-info">
-                    <img src="images/weather-icon.png" alt="Cloudy">
-                    <p><strong>75° F</strong></p>
-                    <p>Partly Cloudy</p>
-                    <p>High: 85°</p>
-                    <p>Low: 52°</p>
-                    <p>Humidity: 34%</p>
-                    <p>Sunrise: 7:30am</p>
-                    <p>Sunset: 9:59pm</p>
-                </div>
+                <div id="weatherCurrent"></div>
             </article>
             <article class="panel weather-forecast">
-                <h3>Weather Forecast</h3>
-                <div class="forecast-list">
-                    <p>Today: <strong>90°F</strong></p>
-                    <p>Wednesday: <strong>89°F</strong></p>
-                    <p>Thursday: <strong>68°F</strong></p>
-                </div>
+                <h3>3-Day Forecast</h3>
+                <div id="weatherForecast"></div>
             </article>
         </section>
 
-        <section class="view-toggle">
-            <button id="gridView">Grid View</button>
-            <button id="listView">List View</button>
+        <section class="spotlights">
+            <h3>Member Spotlights</h3>
+            <div id="spotlights" class="cards"></div>
         </section>
-
-        <section id="directory" class="directory grid"></section>
     </main>
 
     <footer class="site-footer">
@@ -93,21 +78,17 @@
             <p><strong>Timbuktu Chamber of Commerce</strong></p>
             <p>10 Rue De La Paix</p>
             <p>Timbuktu, Mali 999</p>
-            <p><a href=#>info@timbuktucc.org</a></p>
+            <p><a href="mailto:info@timbuktucc.org">info@timbuktucc.org</a></p>
             <p>(223) 555-2300</p>
         </div>
-        <div class="footer-social">
-            <a href="#"><img src="images/youtube.svg" alt="YouTube"></a>
-            <a href="#"><img src="images/twitter.svg" alt="Twitter"></a>
-            <a href="#"><img src="images/linkedin.svg" alt="LinkedIn"></a>
-        </div>
         <div class="footer-info">
-            <p>WDD231 Class Project | Marie Martínez</p>
-            <p>&copy; <span id="year"></span> Timbuktu Chamber of Commerce</p>
+            <p>WDD231 Class Project | Your Name</p>
+            <p>&copy; <span id="year"></span> Timbuktu Chamber</p>
             <p>Last Modification: <span id="lastMod"></span></p>
         </div>
     </footer>
-    <script src="scripts/script.js"></script>
+
+    <script src="scripts/script.js" defer></script>
 </body>
 
 </html>

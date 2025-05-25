@@ -51,12 +51,24 @@ body {
 .main-nav {
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
 }
 
 .nav-list {
     list-style: none;
     display: flex;
     gap: 1.5rem;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-list a {
@@ -67,6 +79,37 @@ body {
 
 .nav-list a.active {
     border-bottom: 2px solid var(--primary-color);
+}
+
+@media (max-width: 800px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        background: var(--light-bg);
+        position: absolute;
+        top: 100%;
+        right: 2%;
+        width: 200px;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-list.open {
+        display: flex;
+    }
+
+    .nav-list li {
+        margin: 0;
+    }
+
+    .nav-list a {
+        padding: 0.75rem 1rem;
+        display: block;
+    }
 }
 
 .theme-toggle {
@@ -102,8 +145,9 @@ main {
     padding: 2% 2%;
 }
 
-h2 {
-    font-size: 2rem;
+h2,
+h1,
+h3 {
     margin-bottom: 1rem;
 }
 
@@ -224,9 +268,6 @@ body.dark-mode {
     --text-color: var(--background-color);
     --light-bg: #444;
     --card-bg: #555;
-}
-
-body.dark-mode {
     background: var(--background-color);
     color: var(--text-color);
 }
