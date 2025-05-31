@@ -146,6 +146,10 @@ h3 {
     padding: 1rem;
 }
 
+.panel-content li {
+    list-style-type: none;
+}
+
 .spotlights .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

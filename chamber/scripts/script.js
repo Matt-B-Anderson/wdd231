@@ -30,6 +30,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+    const capitalizeFirstLetter = (str) => {
+        return str
+            .split(' ')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
+
 
     const eventsList = document.getElementById('eventsList');
     if (eventsList) {
@@ -41,18 +48,39 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         try {
             const resp = await fetch(
-                `http://api.openweathermap.org/data/3.0/onecall?lat=39.9625&lon=83.0032&exclude=minutely,hourly,alerts&units=imperial&appid=5ad47e7815c0b9e60a8b31b074db98dc`
+                `https://api.openweathermap.org/data/3.0/onecall?lat=39.9625&lon=83.0032&exclude=minutely,hourly,alerts&units=imperial&appid=5ad47e7815c0b9e60a8b31b074db98dc`
             );
             if (!resp.ok) throw new Error(resp.statusText);
             const data = await resp.json();
+            const sunriseTs = data.current.sunrise;
+            const sunsetTs = data.current.sunset;
+            const sunriseDate = new Date(sunriseTs * 1000);
+            const sunsetDate = new Date(sunsetTs * 1000);
+            const formattedSunrise = sunriseDate.toLocaleTimeString([], {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+            });
+            const formattedSunset = sunsetDate.toLocaleTimeString([], {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+            });
             const curEl = document.getElementById('weatherCurrent');
             if (curEl) {
-                curEl.innerHTML = `<p><strong>${Math.round(data.current.temp)}° F</strong></p>` +
-                    `<p>${data.current.weather[0].description}</p>`;
+
+                curEl.innerHTML = `<img src="../images/weather-icon.png" alt="Cloudy">` +
+                    `<p><strong>${Math.round(data.current.temp)}° F</strong></p>` +
+                    `<p>${capitalizeFirstLetter(data.current.weather[0].description)}</p>` +
+                    `<p>High: ${Math.round(data.daily[0].temp.max)}°</p>` +
+                    `<p>Low: ${Math.round(data.daily[0].temp.min)}°</p>` +
+                    `<p>Humidity: ${data.daily[0].humidity}%</p>` +
+                    `<p>Sunrise: ${formattedSunrise}</p>` +
+                    `<p>Sunset: ${formattedSunset}</p>`;
             }
             const fcEl = document.getElementById('weatherForecast');
             if (fcEl) {
-                fcEl.innerHTML = data.daily.slice(1, 4).map(d => {
+                fcEl.innerHTML = data.daily.slice(0, 3).map(d => {
                     const day = new Date(d.dt * 1000).toLocaleDateString(undefined, { weekday: 'short' });
                     return `<p>${day}: <strong>${Math.round(d.temp.day)}° F</strong></p>`;
                 }).join('');

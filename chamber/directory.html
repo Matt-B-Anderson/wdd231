@@ -53,29 +53,15 @@
         <section class="panels">
             <article class="panel events">
                 <h3>Events</h3>
-                <div class="panel-content">
-                </div>
+                <div id="eventsList" class="panel-content"></div>
             </article>
             <article class="panel weather-current">
                 <h3>Current Weather</h3>
-                <div class="weather-info">
-                    <img src="images/weather-icon.png" alt="Cloudy">
-                    <p><strong>75° F</strong></p>
-                    <p>Partly Cloudy</p>
-                    <p>High: 85°</p>
-                    <p>Low: 52°</p>
-                    <p>Humidity: 34%</p>
-                    <p>Sunrise: 7:30am</p>
-                    <p>Sunset: 9:59pm</p>
-                </div>
+                <div id="weatherCurrent" class="weather-info"></div>
             </article>
             <article class="panel weather-forecast">
-                <h3>Weather Forecast</h3>
-                <div class="forecast-list">
-                    <p>Today: <strong>90°F</strong></p>
-                    <p>Wednesday: <strong>89°F</strong></p>
-                    <p>Thursday: <strong>68°F</strong></p>
-                </div>
+                <h3>3-Day Forecast</h3>
+                <div id="weatherForecast" class="forecast-list"></div>
             </article>
         </section>
 
@@ -106,7 +92,7 @@
             <p>Last Modification: <span id="lastMod"></span></p>
         </div>
     </footer>
-    <script src="scripts/script.js" defer></script>
+    <script src="scripts/script.js"></script>
     <script src="scripts/directory.js" defer></script>
 </body>
 
