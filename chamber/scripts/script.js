@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
             const curEl = document.getElementById('weatherCurrent');
             if (curEl) {
-                curEl.innerHTML = `<img src="images/weather-icon.png" alt="Cloudy">` +
+                curEl.innerHTML = `<img src="./images/weather-icon.png" alt="Cloudy">` +
                     `<p><strong>${Math.round(data.current.temp)}° F</strong></p>` +
                     `<p>${capitalizeFirstLetter(data.current.weather[0].description)}</p>` +
                     `<p>High: ${Math.round(data.daily[0].temp.max)}°</p>` +
