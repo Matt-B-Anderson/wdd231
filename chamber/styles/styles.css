@@ -5,6 +5,9 @@
     --light-bg: #ddd;
     --card-bg: #eee;
     --text-color: #333;
+    --input-bg: #fff;
+    --input-border: #ccc;
+    --input-focus: #8B0000;
 }
 
 * {
@@ -40,7 +43,6 @@ body {
 
 .branding h1 {
     font-size: 1.5rem;
-    margin-bottom: 0.25rem;
 }
 
 .branding p {
@@ -67,8 +69,6 @@ body {
     list-style: none;
     display: flex;
     gap: 1.5rem;
-    margin: 0;
-    padding: 0;
 }
 
 .nav-list a {
@@ -79,37 +79,6 @@ body {
 
 .nav-list a.active {
     border-bottom: 2px solid var(--primary-color);
-}
-
-@media (max-width: 800px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-list {
-        display: none;
-        flex-direction: column;
-        background: var(--light-bg);
-        position: absolute;
-        top: 100%;
-        right: 2%;
-        width: 200px;
-        border-radius: 4px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-list.open {
-        display: flex;
-    }
-
-    .nav-list li {
-        margin: 0;
-    }
-
-    .nav-list a {
-        padding: 0.75rem 1rem;
-        display: block;
-    }
 }
 
 .theme-toggle {
@@ -145,8 +114,8 @@ main {
     padding: 2% 2%;
 }
 
-h2,
 h1,
+h2,
 h3 {
     margin-bottom: 1rem;
 }
@@ -236,13 +205,143 @@ h3 {
     text-align: center;
 }
 
-.card h4,
-.card h3 {
+.card h3,
+.card h4 {
     margin-bottom: 0.5rem;
+    color: var(--secondary-color);
 }
 
 .card p {
     margin: 0.25rem 0;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+form {
+    background: var(--input-bg);
+    padding: 1.5rem;
+    border-radius: 4px;
+    width: 100%;
+}
+
+@media (min-width: 800px) {
+    form {
+        width: 55%;
+    }
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="hidden"],
+form select,
+form textarea {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    width: 100%;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--input-focus);
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+form input[type="submit"] {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+form input[type="submit"]:hover {
+    filter: brightness(0.9);
+}
+
+.membership-cards {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    animation: fadeIn 1s ease;
+}
+
+@media (min-width: 800px) {
+    .membership-cards {
+        width: 40%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--secondary-color);
 }
 
 .site-footer {
@@ -252,6 +351,7 @@ h3 {
     justify-content: space-between;
     padding: 1.5rem 2%;
     gap: 1rem;
+    margin-top: 2rem;
 }
 
 .footer-contact p,
@@ -261,6 +361,15 @@ h3 {
 
 .footer-social a {
     margin-right: 0.5rem;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 body.dark-mode {
@@ -309,4 +418,42 @@ body.dark-mode .cta-button {
         bottom: 0.5rem;
         font-size: 0.9rem;
     }
+}
+
+@media (min-width: 600px) {
+
+    .footer-contact,
+    .footer-info {
+        width: auto;
+    }
+}
+
+#summary {
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 4px;
+    max-width: 600px;
+    margin: 1.5rem auto;
+    font-size: 1rem;
+}
+
+#summary h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+#summary dl {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    row-gap: 0.75rem;
+    column-gap: 1rem;
+}
+
+#summary dt {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+#summary dd {
+    margin: 0;
 }

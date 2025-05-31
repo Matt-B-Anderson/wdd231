@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join | Timbuktu Chamber</title>
+    <meta name="description" content="Membership application for Timbuktu Chamber of Commerce">
+    <meta name="author" content="Your Name">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="images/logo.png" alt="Timbuktu Chamber Logo">
+            <div class="branding">
+                <h2>Timbuktu</h2>
+                <p>Chamber of Commerce</p>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <button id="menuToggle" class="menu-toggle" aria-controls="nav-list" aria-expanded="false">☰</button>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html" class="active">Join</a></li>
+                <li><a href="discover.html">Discover</a></li>
+            </ul>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">☾</button>
+        </nav>
+    </header>
+    <main>
+        <h1>Join the Chamber</h1>
+        <div class="form-container">
+            <form method="get" action="thankyou.html">
+                <label>First Name
+                    <input type="text" name="firstname" title="First Name" required autocomplete="given-name">
+                </label>
+                <label>Last Name
+                    <input type="text" name="lastname" title="Last Name" required autocomplete="family-name">
+                </label>
+                <label>Title
+                    <input type="text" name="orgtitle" title="Organization Title" autocomplete="organization-title"
+                        pattern="[A-Za-z\-\s]{7,}" placeholder="e.g., Executive Director">
+                </label>
+                <label>Email
+                    <input type="email" name="email" title="Email Address" required autocomplete="email"
+                        placeholder="example@domain.com">
+                </label>
+                <label>Mobile Phone
+                    <input type="tel" name="phone" title="Mobile Phone" required autocomplete="tel">
+                </label>
+                <label>Business Name
+                    <input type="text" name="business" title="Business Name" required autocomplete="organization">
+                </label>
+                <label>Membership Level
+                    <select name="level" title="Membership Level" required>
+                        <option value="NP">NP Membership (No Fee)</option>
+                        <option value="Bronze">Bronze Membership</option>
+                        <option value="Silver">Silver Membership</option>
+                        <option value="Gold">Gold Membership</option>
+                    </select>
+                </label>
+                <label>Business Description
+                    <textarea name="description" title="Business Description"></textarea>
+                </label>
+                <input type="hidden" name="timestamp" id="timestamp">
+                <input type="submit" value="Submit Application">
+            </form>
+            <div class="membership-cards">
+                <div class="card" data-modal="NPModal">
+                    <h3>NP Membership</h3>
+                    <a>Learn More</a>
+                </div>
+                <div class="card" data-modal="BronzeModal">
+                    <h3>Bronze Membership</h3>
+                    <a>Learn More</a>
+                </div>
+                <div class="card" data-modal="SilverModal">
+                    <h3>Silver Membership</h3>
+                    <a>Learn More</a>
+                </div>
+                <div class="card" data-modal="GoldModal">
+                    <h3>Gold Membership</h3>
+                    <a>Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div id="NPModal" class="modal">
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <h3>NP Membership Benefits</h3>
+                <p>No fee. Access to basic networking events.</p>
+            </div>
+        </div>
+        <div id="BronzeModal" class="modal">
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <h3>Bronze Membership Benefits</h3>
+                <p>Benefits include: event discounts, listing in directory.</p>
+            </div>
+        </div>
+        <div id="SilverModal" class="modal">
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <h3>Silver Membership Benefits</h3>
+                <p>Includes Bronze perks + spotlight card on home page.</p>
+            </div>
+        </div>
+        <div id="GoldModal" class="modal">
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <h3>Gold Membership Benefits</h3>
+                <p>Includes Silver perks + premium advertising and event sponsorships.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-contact">
+            <p><strong>Timbuktu Chamber of Commerce</strong></p>
+            <p>10 Rue De La Paix</p>
+            <p>Timbuktu, Mali 999</p>
+            <p><a href=#>info@timbuktucc.org</a></p>
+            <p>(223) 555-2300</p>
+        </div>
+        <div class="footer-social">
+            <a href="#"><img src="images/youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="images/twitter.svg" alt="Twitter"></a>
+            <a href="#"><img src="images/linkedin.svg" alt="LinkedIn"></a>
+        </div>
+        <div class="footer-info">
+            <p>WDD231 Class Project | Marie Martínez</p>
+            <p>&copy; <span id="year"></span> Timbuktu Chamber of Commerce</p>
+            <p>Last Modification: <span id="lastMod"></span></p>
+        </div>
+    </footer>
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/join.js" defer></script>
+</body>
+
+</html>
