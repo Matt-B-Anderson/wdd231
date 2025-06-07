@@ -1,0 +1,50 @@
+[
+	{
+		"name": "Ohio Statehouse",
+		"address": "1 Capitol Square, Columbus, OH 43215",
+		"description": "Neoclassical government building and museum located in downtown Columbus.",
+		"image": "statehouse.webp"
+	},
+	{
+		"name": "Franklin Park Conservatory",
+		"address": "1777 E Broad St, Columbus, OH 43203",
+		"description": "Botanical garden featuring biomes, art exhibitions, and seasonal displays.",
+		"image": "conservatory.webp"
+	},
+	{
+		"name": "Columbus Zoo & Aquarium",
+		"address": "4850 W Powell Rd, Powell, OH 43065",
+		"description": "World-renowned zoo and aquarium with diverse wildlife exhibits and conservation programs.",
+		"image": "zoo.webp"
+	},
+	{
+		"name": "Short North Arts District",
+		"address": "High St & N 4th St, Columbus, OH 43215",
+		"description": "Vibrant arts district with galleries, boutiques, dining, and nightlife.",
+		"image": "shortnorth.webp"
+	},
+	{
+		"name": "German Village",
+		"address": "588 S 3rd St, Columbus, OH 43206",
+		"description": "Historic neighborhood known for brick streets, 19th-century homes, and charming shops.",
+		"image": "germanvillage.webp"
+	},
+	{
+		"name": "Scioto Mile",
+		"address": "Along the Scioto River, Columbus, OH",
+		"description": "Scenic riverside park system with trails, fountains, and stunning skyline views.",
+		"image": "sciotomile.webp"
+	},
+	{
+		"name": "Columbus Museum of Art",
+		"address": "480 E Broad St, Columbus, OH 43215",
+		"description": "Museum showcasing American and European art collections, plus interactive galleries.",
+		"image": "museum.webp"
+	},
+	{
+		"name": "North Market",
+		"address": "59 Spruce St, Columbus, OH 43215",
+		"description": "Public market featuring local vendors, fresh produce, and international cuisine.",
+		"image": "northmarket.webp"
+	}
+]

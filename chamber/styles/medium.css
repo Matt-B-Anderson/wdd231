@@ -1,0 +1,77 @@
+.discover-grid {
+    display: grid;
+    grid-template-areas:
+        "card1"
+        "card2"
+        "card3"
+        "card4"
+        "card5"
+        "card6"
+        "card7"
+        "card8";
+    gap: 1rem;
+}
+
+@media (min-width: 641px) {
+    .discover-grid {
+        grid-template-areas:
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .discover-grid {
+        grid-template-areas:
+            "card1 card2 card3"
+            "card4 card5 card6"
+            "card7 card8 sidebar";
+        grid-template-columns: repeat(3, 1fr) 1fr;
+    }
+}
+
+.discover-card {
+    background: var(--light-bg);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+@media (min-width: 641px) {
+    .discover-card:hover img {
+        filter: brightness(1.1);
+        transform: scale(1.02);
+    }
+}
+
+.discover-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.discover-card h2 {
+    margin: 0.5rem;
+}
+
+.discover-card address {
+    font-style: normal;
+    margin: 0.5rem;
+}
+
+.discover-card p {
+    margin: 0.5rem;
+}
+
+.discover-card button {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

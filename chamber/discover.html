@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover | Timbuktu Chamber</title>
+    <meta name="description" content="Discover local points of interest in Timbuktu">
+    <meta name="author" content="Matthew Anderson">
+    <meta property="og:title" content="Discover | Timbuktu Chamber">
+    <meta property="og:description" content="Discover local points of interest in Timbuktu">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://matt-b-anderson.github.io/wdd231/chamber/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://matt-b-anderson.github.io/wdd231/chamber/directory.html">
+    <meta property="fb:app_id" content="Timbuktu">
+    <link rel="icon" href="https://matt-b-anderson.github.io/wdd231/chamber/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/medium.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="images/logo.png" alt="Timbuktu Chamber Logo">
+            <div class="branding">
+                <h2>Timbuktu</h2>
+                <p>Chamber of Commerce</p>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <button id="menuToggle" class="menu-toggle" aria-controls="nav-list" aria-expanded="false">
+                ☰
+            </button>
+            <ul id="nav-list" class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="discover.html">Discover</a></li>
+            </ul>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">☾</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="visitor-msg" id="visitorMsg"></section>
+        <section class="discover-grid" id="discoverGrid"></section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-contact">
+            <p><strong>Timbuktu Chamber of Commerce</strong></p>
+            <p>10 Rue De La Paix</p>
+            <p>Timbuktu, Mali 999</p>
+            <p><a href=#>info@timbuktucc.org</a></p>
+            <p>(223) 555-2300</p>
+        </div>
+        <div class="footer-social">
+            <a href="#"><img src="images/youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="images/twitter.svg" alt="Twitter"></a>
+            <a href="#"><img src="images/linkedin.svg" alt="LinkedIn"></a>
+        </div>
+        <div class="footer-info">
+            <p>WDD231 Class Project | Marie Martínez</p>
+            <p>&copy; <span id="year"></span> Timbuktu Chamber of Commerce</p>
+            <p>Last Modification: <span id="lastMod"></span></p>
+        </div>
+    </footer>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/discover.js" defer></script>
+</body>
+
+</html>
