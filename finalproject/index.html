@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rating Guide</title>
+  <meta name="description" content="Home page of The Rating Guide">
+  <meta name="author" content="Matthew Anderson">
+  <meta property="og:title" content="Home Page">
+  <meta property="og:description" content="Home page of The Rating Guide">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://matt-b-anderson.github.io/wdd231/finalproject/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://matt-b-anderson.github.io/wdd231/finalproject/index.html">
+  <meta property="fb:app_id" content="TheRatingGuide">
+  <link rel="icon" href="https://matt-b-anderson.github.io/wdd231/finalproject/images/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <img src="images/theratingguidelogo.png" alt="The Rating Guide Logo">
+      <h2 class="logo">The Rating Guide</h2>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img src="images/hero.jpg" alt="Film reels on a dark background">
+    <a href="search.html" class="cta-button">Start Searching</a>
+  </section>
+
+  <main class="container">
+    <h1>Welcome!</h1>
+    <p>Use the search below to look up ratings and reviews for movies and TV shows.</p>
+    <form action="search.html" method="get" class="search-form">
+      <label for="q">Search for a Movie or TV show</label>
+      <input type="text" id="q" name="q" placeholder="e.g. Inception, Stranger Things…" required>
+      <button type="submit">Search</button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 The Rating Guide</p>
+    </div>
+  </footer>
+</body>
+</html>
