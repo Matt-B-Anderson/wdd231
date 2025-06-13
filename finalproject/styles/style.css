@@ -74,7 +74,7 @@ body {
         display: block;
     }
 
-    .nav-list {
+    .main-nav .nav-list {
         display: none;
         position: absolute;
         top: 100%;
@@ -83,9 +83,10 @@ body {
         background: var(--bg);
         border: 1px solid #ccc;
         border-radius: 4px;
+        z-index: 20;
     }
 
-    .nav-list.open {
+    .main-nav .nav-list.open {
         display: flex;
     }
 }
