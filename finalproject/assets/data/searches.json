@@ -1,4 +1,29 @@
 {
-  "movies": [],
-  "tv": []
+	"movies": [
+		{ "title": "The Shawshank Redemption", "count": 42 },
+		{ "title": "The Godfather", "count": 37 },
+		{ "title": "The Dark Knight", "count": 42 },
+		{ "title": "Pulp Fiction", "count": 29 },
+		{ "title": "Forrest Gump", "count": 25 },
+		{ "title": "Inception", "count": 21 },
+		{ "title": "Fight Club", "count": 18 },
+		{ "title": "The Matrix", "count": 15 },
+		{ "title": "Interstellar", "count": 12 },
+		{
+			"title": "The Lord of the Rings: The Fellowship of the Ring",
+			"count": 10
+		}
+	],
+	"tv": [
+		{ "title": "Game of Thrones", "count": 45 },
+		{ "title": "Breaking Bad", "count": 40 },
+		{ "title": "Stranger Things", "count": 35 },
+		{ "title": "The Mandalorian", "count": 28 },
+		{ "title": "The Crown", "count": 24 },
+		{ "title": "Friends", "count": 22 },
+		{ "title": "The Office", "count": 19 },
+		{ "title": "Westworld", "count": 16 },
+		{ "title": "The Walking Dead", "count": 14 },
+		{ "title": "Rick and Morty", "count": 11 }
+	]
 }

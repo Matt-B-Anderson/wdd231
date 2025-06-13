@@ -1,51 +1,56 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const links = document.querySelectorAll('.nav-list a');
-  const page = location.pathname.split('/').pop() || 'index.html';
-  links.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === page);
-  });
+async function loadStats() {
+    const KEY = 'searchStats';
+    let stats = JSON.parse(localStorage.getItem(KEY));
 
-  async function initStats() {
-    if (!localStorage.getItem('topMovies') || !localStorage.getItem('topShows')) {
-      try {
-        const res  = await fetch('/data/initial-stats.json');
-        if (!res.ok) throw new Error(res.statusText);
-        const data = await res.json();
-        localStorage.setItem('topMovies', JSON.stringify(data.topMovies));
-        localStorage.setItem('topShows', JSON.stringify(data.topShows));
-      } catch (err) {
-        console.error('Unable to load initial stats:', err);
-      }
+    if (!stats) {
+        try {
+            const res = await fetch('assets/data/searches.json');
+            if (!res.ok) throw new Error(res.statusText);
+            stats = await res.json();
+        } catch (err) {
+            console.error('Failed to fetch searches.json:', err);
+            stats = { movies: [], tv: [] };
+        }
     }
-  }
 
-  function populate(key, id) {
-    const data = JSON.parse(localStorage.getItem(key)) || [];
-    const list = document.getElementById(id);
-    data.slice(0, 10).forEach(text => {
-      const li = document.createElement('li');
-      li.textContent = text;
-      list.appendChild(li);
+    stats.movies.sort((a, b) => b.count - a.count);
+    stats.tv.sort((a, b) => b.count - a.count);
+
+    localStorage.setItem(KEY, JSON.stringify(stats));
+
+    return stats;
+}
+
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const links = document.querySelectorAll('.nav-list a');
+    const page = location.pathname.split('/').pop() || 'index.html';
+    links.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === page);
     });
-  }
 
-  initStats().then(() => {
-    populate('topMovies', 'topMovies');
-    populate('topShows',  'topShows');
-  });
+    const stats = await loadStats();
 
-  const form = document.querySelector('.search-form');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const q = form.q.value.trim();
-    if (!q) return;
+    const populate = (arr, id) => {
+        const ol = document.getElementById(id);
+        ol.innerHTML = '';
+        arr.slice(0, 10).forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.title} (${item.count})`;
+            ol.appendChild(li);
+        });
+    };
 
-    // ['topMovies','topShows'].forEach(key => {
-    //   const arr = JSON.parse(localStorage.getItem(key)) || [];
-    //   const updated = [q, ...arr.filter(x => x !== q)].slice(0, 10);
-    //   localStorage.setItem(key, JSON.stringify(updated));
-    // });
+    populate(stats.movies, 'topMovies');
+    populate(stats.tv, 'topShows');
 
-    window.location.href = `search.html?q=${encodeURIComponent(q)}`;
-  });
+    const form = document.querySelector('.search-form');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const q = form.q.value.trim();
+        if (!q) return;
+
+        window.location.href = `search.html?q=${encodeURIComponent(q)}`;
+    });
 });

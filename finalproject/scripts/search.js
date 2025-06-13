@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+
         const title = type === 'movie' ? item.title : item.name;
         const posterUrl = item.poster_path
             ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
@@ -64,17 +65,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const pgData = await res.json();
         const entries = pgData.filter(e => e.tconst === imdbId);
 
-        let stats = JSON.parse(localStorage.getItem('searchStats') || 'null');
+        const KEY = 'searchStats';
+        let stats = JSON.parse(localStorage.getItem(KEY));
         if (!stats) {
-            res = await fetch('assets/data/searches.json');
-            stats = await res.json();
+            stats = { movies: [], tv: [] };
         }
-        const key = type === 'movie' ? 'movies' : 'tv';
-        const arr = stats[key];
+        const arr = stats[type === 'movie' ? 'movies' : 'tv'];
         const idx = arr.findIndex(x => x.title === title);
-        if (idx >= 0) arr[idx].count++;
-        else arr.push({ title, count: 1 });
-        localStorage.setItem('searchStats', JSON.stringify(stats));
+        if (idx >= 0) {
+            arr[idx].count++;
+        } else {
+            arr.push({ title, count: 1 });
+        }
+        arr.sort((a, b) => b.count - a.count);
+        localStorage.setItem(KEY, JSON.stringify(stats));
 
         document.getElementById('resultTitle').textContent = title;
         const posterEl = document.getElementById('poster');
