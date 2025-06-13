@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>The Rating Guide — Search</title>
+    <meta name="description" content="Search page of The Rating Guide" />
+    <meta name="author" content="Matthew Anderson" />
+    <meta property="og:title" content="Search Page" />
+    <meta property="og:description" content="Search page of The Rating Guide" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://matt-b-anderson.github.io/wdd231/finalproject/images/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:url"
+      content="https://matt-b-anderson.github.io/wdd231/finalproject/index.html"
+    />
+    <meta property="fb:app_id" content="TheRatingGuide" />
+    <link
+      rel="icon"
+      href="https://matt-b-anderson.github.io/wdd231/finalproject/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/search.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="logo">The Rating Guide</div>
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html" class="active">Search</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <img
+        src="images/hero.webp"
+        alt="Cinematic movie scene with popcorn and clapperboard"
+      />
+      <a href="index.html" class="cta-button">New Search</a>
+    </section>
+
+    <main class="container">
+      <section class="search-wrap">
+        <form class="search-form" action="search.html" method="get">
+          <label class="type-label">
+            Type
+            <select name="type">
+              <option value="movie">Movie</option>
+              <option value="tv">TV Show</option>
+            </select>
+          </label>
+          <label for="q">Search for a Movie or TV show</label>
+          <input
+            id="q"
+            name="q"
+            type="text"
+            placeholder="e.g. Inception, Stranger Things…"
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+      </section>
+
+      <section id="results" class="search-results hidden">
+        <h1 id="resultTitle"></h1>
+        <div id="poster"></div>
+        <p><strong>Rating:</strong> <span id="rating"></span></p>
+        <div id="parentalGuide"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 The Rating Guide</p>
+      </div>
+    </footer>
+
+    <script src="scripts/search.js" defer></script>
+  </body>
+</html>

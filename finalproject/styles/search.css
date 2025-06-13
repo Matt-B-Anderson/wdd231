@@ -1,0 +1,55 @@
+.search-wrap {
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.search-results {
+  margin: 3rem auto;
+  max-width: 700px;
+  text-align: center;
+}
+
+.search-results h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+#poster img {
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  margin: 1rem 0;
+}
+
+.search-results p {
+  font-size: 1.125rem;
+  margin: 0.5rem 0;
+}
+
+#parentalGuide {
+  text-align: left;
+  margin-top: 1.5rem;
+}
+
+#parentalGuide h4 {
+  margin-top: 1rem;
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+#parentalGuide p {
+  margin: 0.25rem 0 0.75rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 800px) {
+  .search-wrap,
+  .search-results {
+    padding: 0 1rem;
+  }
+}
+
+.hidden {
+  display: none !important;
+}

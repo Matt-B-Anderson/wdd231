@@ -19,11 +19,21 @@ body {
   min-height: 100vh;
 }
 
+.title {
+  display: flex;
+  gap: 5px;
+  justify-self: center;
+}
+
+.title img {
+  width: 80px;
+  height: 80px;
+}
+
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 1rem;
 }
 
 .site-header {
@@ -34,32 +44,50 @@ body {
 }
 
 .site-header .container {
-  display: flex;
+  max-width: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: space-between;
+  padding: 1rem 2%;
 }
 
 .logo {
   color: var(--primary);
-  font-size: 1.5rem;
+  font-size: 3rem;
   text-transform: uppercase;
+  align-self: center;
 }
 
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
+  
 }
 
 .nav-list a {
+  display: inline-block;
+  font-size: 2rem;
   text-decoration: none;
   color: var(--text);
   font-weight: 500;
+  padding: 0.25rem 0; 
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .nav-list a.active {
   color: var(--primary);
-  border-bottom: 2px solid var(--primary);
+  border-bottom: none;
+}
+
+.nav-list:hover a.active:not(:hover) {
+  color: var(--text);
+}
+
+.nav-list a:hover {
+  color: var(--primary);             
+  transform: scale(1.1);              
 }
 
 .hero {
@@ -89,49 +117,144 @@ body {
 main.container {
   flex: 1;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2rem 0;
 }
 
 main h1 {
-  font-size: 2rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
 }
 
-main p {
-  margin-bottom: 1.5rem;
+.home-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.stats {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.stat-block {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-block h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: var(--primary);
+  align-self: center;
+}
+
+.stat-block ol {
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 800px) {
+  .home-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.search-wrap {
+  max-width: 600px;
+}
+
+.search-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
 }
 
 .search-form {
-  display: grid;
-  gap: 0.5rem;
-  max-width: 400px;
   margin: 0 auto;
 }
 
-.search-form label {
-  font-weight: bold;
-  text-align: left;
+.search-container {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  box-shadow: 0 1px 6px rgba(32,33,36,0.28);
+  transition: box-shadow 0.2s ease;
 }
 
-.search-form input {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+.search-container:focus-within {
+  box-shadow: 0 3px 12px rgba(32,33,36,0.6);
 }
 
-.search-form button {
-  background: var(--primary);
-  color: #fff;
+.search-container select {
   border: none;
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
+  background: transparent;
+  padding: 0 0.75rem;
+  font-size: 0.95rem;
+  color: #555;
+  outline: none;
+  border-right: 1px solid #ccc;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
 }
 
-.search-form button:hover {
-  background: #700000;
+.search-container input {
+  flex: 1;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-container button {
+  background: transparent;
+  border: none;
+  padding: 0 0.75rem;
+  cursor: pointer;
+  color: var(--text);
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.search-container button:hover {
+  background: rgba(0,0,0,0.05);
+  color: var(--primary);
+}
+
+@media (max-width: 400px) {
+  .search-container {
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+  }
+  .search-container select {
+    border: none;
+    border-radius: 4px;
+    border-bottom: 1px solid #ccc;
+    margin: 0 1rem 0.5rem;
+  }
+  .search-container input {
+    margin: 0 1rem 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .search-container button {
+    margin: 0 1rem;
+  }
 }
 
 .site-footer {
