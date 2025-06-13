@@ -1,4 +1,8 @@
+import { initNavigation } from "./nav.js";
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    initNavigation();
     const params = new URLSearchParams(location.search);
     const data = {
         name: params.get('name') || '',
