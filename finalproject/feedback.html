@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Rating Guide — Feedback</title>
+    <meta name="description" content="Feedback for The Rating Guide" />
+    <meta name="author" content="Matthew Anderson" />
+    <meta property="og:title" content="The Rating Guide — Feedback" />
+    <meta property="og:description" content="Feedback for The Rating Guide" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://matt-b-anderson.github.io/wdd231/finalproject/images/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:url"
+      content="https://matt-b-anderson.github.io/wdd231/finalproject/index.html"
+    />
+    <meta property="fb:app_id" content="TheRatingGuide" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/feedback.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="title">
+          <img
+            src="images/theratingguidelogo.webp"
+            alt="The Rating Guide Logo"
+          />
+          <h2 class="logo">The Rating Guide</h2>
+        </div>
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="feedback.html" class="active">Feedback</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <img src="images/hero.webp" alt="Movie background" />
+    </section>
+
+    <main class="container">
+      <section class="feedback-section">
+        <form id="feedbackForm">
+          <label>
+            Name
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+
+          <label>
+            Phone
+            <input type="tel" name="phone" required autocomplete="tel" />
+          </label>
+
+          <fieldset class="rating">
+            <legend>Rate the App</legend>
+            <div class="rating-container">
+              <label><input type="radio" name="rating" value="1" required />★</label>
+              <label><input type="radio" name="rating" value="2" />★★</label>
+              <label><input type="radio" name="rating" value="3" />★★★</label>
+              <label><input type="radio" name="rating" value="4" />★★★★</label>
+              <label><input type="radio" name="rating" value="5" />★★★★★</label>
+            </div>
+          </fieldset>
+
+          <label>
+            Suggestions
+            <textarea
+              name="suggestions"
+              placeholder="Your thoughts…"
+            ></textarea>
+          </label>
+
+          <button type="submit" class="btn-submit">Submit Feedback</button>
+        </form>
+      </section>
+    </main>
+
+    <div id="subscribeModal" class="modal hidden">
+      <div class="modal-content">
+        <p>Would you like to subscribe to our newsletter?</p>
+        <button id="subYes" class="modal-btn">Yes</button>
+        <button id="subNo" class="modal-btn">No</button>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 The Rating Guide</p>
+      </div>
+    </footer>
+
+    <script src="scripts/feedback.js" defer></script>
+  </body>
+</html>

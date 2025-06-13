@@ -1,0 +1,28 @@
+.thankyou-section {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.thankyou-section h1 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.thankyou-section dl {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  row-gap: 0.75rem;
+  column-gap: 1rem;
+}
+
+.thankyou-section dt {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.thankyou-section dd {
+  margin: 0;
+}

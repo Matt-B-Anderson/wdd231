@@ -60,15 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         const imdbId = (await res.json()).imdb_id;
 
-        res = await fetch('/assets/data/parental_guide.json');
+        res = await fetch('assets/data/parental_guide.json');
         const pgData = await res.json();
         const entries = pgData.filter(e => e.tconst === imdbId);
-        const guide = {};
-        entries.forEach(e => (guide[e.Section] ??= []).push(e.Content));
 
         let stats = JSON.parse(localStorage.getItem('searchStats') || 'null');
         if (!stats) {
-            res = await fetch('/assets/data/searches.json');
+            res = await fetch('assets/data/searches.json');
             stats = await res.json();
         }
         const key = type === 'movie' ? 'movies' : 'tv';
@@ -87,20 +85,33 @@ document.addEventListener('DOMContentLoaded', () => {
             img.alt = title;
             posterEl.appendChild(img);
         }
-        document.getElementById('rating').textContent = rating;
 
         const pgContainer = document.getElementById('parentalGuide');
         pgContainer.innerHTML = '';
-        Object.entries(guide).forEach(([section, notes]) => {
-            const h4 = document.createElement('h4');
-            h4.textContent = section;
-            pgContainer.appendChild(h4);
-            notes.forEach(n => {
+        if (entries.length) {
+            const pg = entries[0];
+            const ratingH3 = document.createElement('h3');
+            ratingH3.textContent = `Rating: ${rating}`
+            pgContainer.appendChild(ratingH3)
+            const mpaaH = document.createElement('h4');
+            mpaaH.textContent = 'MPAA / Certificate';
+            pgContainer.appendChild(mpaaH);
+            const mpaaP = document.createElement('p');
+            mpaaP.textContent = pg.mpaa;
+            pgContainer.appendChild(mpaaP);
+
+            ['sex', 'violence', 'profanity', 'drugs', 'intense'].forEach(cat => {
+                const label = cat.charAt(0).toUpperCase() + cat.slice(1);
+                const h4 = document.createElement('h4');
+                h4.textContent = label;
+                pgContainer.appendChild(h4);
                 const p = document.createElement('p');
-                p.textContent = n;
+                p.textContent = pg[cat] || 'None';
                 pgContainer.appendChild(p);
             });
-        });
+        } else {
+            pgContainer.textContent = 'No parental‐guide info available.';
+        }
         resultsSection.classList.remove('hidden');
     }
 
