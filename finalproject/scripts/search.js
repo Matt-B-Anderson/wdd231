@@ -1,17 +1,8 @@
+import { initNavigation } from './nav.js';
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    const menuToggle = document.getElementById('menuToggle');
-    const links = document.querySelectorAll('.nav-list a');
-    const page = location.pathname.split('/').pop() || 'index.html';
-    links.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === page);
-    });
-    if (menuToggle && navList) {
-        menuToggle.addEventListener('click', () => {
-            const expanded = navList.classList.toggle('open');
-            menuToggle.setAttribute('aria-expanded', expanded);
-        });
-    }
+    initNavigation();
     const TMDB_KEY = 'f395f6fa4d3341c013cac38bed5813ec';
     const resultsSection = document.getElementById('results');
     const form = document.querySelector('.search-form');

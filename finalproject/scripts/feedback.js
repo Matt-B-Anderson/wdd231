@@ -1,16 +1,8 @@
+import { initNavigation } from "./nav.js";
+
 document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menuToggle');
-    const links = document.querySelectorAll('.nav-list a');
-    const page = location.pathname.split('/').pop() || 'index.html';
-    links.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === page);
-    });
-    if (menuToggle && navList) {
-        menuToggle.addEventListener('click', () => {
-            const expanded = navList.classList.toggle('open');
-            menuToggle.setAttribute('aria-expanded', expanded);
-        });
-    }
+
+    initNavigation();
 
     const form = document.getElementById('feedbackForm');
     const modal = document.getElementById('subscribeModal');
