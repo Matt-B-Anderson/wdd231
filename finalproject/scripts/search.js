@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         a.classList.toggle('active', a.getAttribute('href') === page);
     });
     const TMDB_KEY = 'f395f6fa4d3341c013cac38bed5813ec';
+    const resultsSection = document.getElementById('results');
     const form = document.querySelector('.search-form');
     const inputQ = document.getElementById('q');
     const selectT = document.getElementById('type');
@@ -100,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pgContainer.appendChild(p);
             });
         });
+        resultsSection.classList.remove('hidden');
     }
 
     if (queryParam) {
