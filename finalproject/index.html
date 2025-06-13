@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Rating Guide — Home</title>
@@ -9,108 +10,76 @@
     <meta property="og:title" content="The Rating Guide — Home" />
     <meta property="og:description" content="Home page of The Rating Guide" />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://matt-b-anderson.github.io/wdd231/finalproject/images/og-image.png"
-    />
+    <meta property="og:image"
+        content="https://matt-b-anderson.github.io/wdd231/finalproject/images/theratingguidelogo.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta
-      property="og:url"
-      content="https://matt-b-anderson.github.io/wdd231/finalproject/index.html"
-    />
+    <meta property="og:url" content="https://matt-b-anderson.github.io/wdd231/finalproject/index.html" />
     <meta property="fb:app_id" content="TheRatingGuide" />
-    <link
-      rel="icon"
-      href="https://matt-b-anderson.github.io/wdd231/finalproject/images/favicon.ico"
-      type="image/x-icon"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="icon" href="https://matt-b-anderson.github.io/wdd231/finalproject/images/favicon.ico"
+        type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles/style.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <header class="site-header">
-      <div class="container">
-        <div class="title">
-          <img
-            src="images/theratingguidelogo.webp"
-            alt="The Rating Guide Logo"
-          />
-          <h2 class="logo">The Rating Guide</h2>
+        <div class="container">
+            <div class="title">
+                <img src="images/theratingguidelogo.webp" alt="The Rating Guide Logo" loading="lazy" />
+                <h2 class="logo">The Rating Guide</h2>
+            </div>
+            <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                ☰ </button>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="main-nav">
-          <ul class="nav-list">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="search.html">Search</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
-          </ul>
-        </nav>
-      </div>
     </header>
 
     <section class="hero">
-      <img src="images/hero.webp" alt="Movie with a background" />
-      <a href="search.html" class="cta-button">Start Searching</a>
+        <img src="images/hero.webp" alt="Movie with a background" loading="lazy" />
+        <a href="search.html" class="cta-button">Start Searching</a>
     </section>
 
     <main class="container">
-      <h1>Welcome!</h1>
+        <h1>Welcome!</h1>
 
-      <div class="home-content">
-        <section class="stats">
-          <div class="stat-block">
-            <h2>Top 10 Movies</h2>
-            <ol id="topMovies"></ol>
-          </div>
-          <div class="stat-block">
-            <h2>Top 10 TV Shows</h2>
-            <ol id="topShows"></ol>
-          </div>
-        </section>
+        <div class="home-content">
+            <section id="dynamic-container" class="dynamic-cards"></section>
 
-        <section class="search-wrap">
-          <label for="q" class="search-label"
-            >Search for a Movie or TV show</label
-          >
-          <form class="search-form" action="search.html" method="get">
-            <div class="search-container">
-              <select id="type" name="type">
-                <option value="movie">Movie</option>
-                <option value="tv">TV Show</option>
-              </select>
-              <input
-                id="q"
-                name="q"
-                type="text"
-                placeholder="e.g. Howl's Moving Castle, Stranger Things…"
-                required
-              />
-              <button type="submit" aria-label="Search">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M15.5 14h-0.79l-0.28-0.27a6.471 6.471 0 001.48-5.34C15.12 5.88 12.24 3 8.88 3S2.64 5.88 2.64 9.39c0 3.51 2.88 6.39 6.39 6.39 1.61 0 3.09-0.59 4.24-1.58l0.27 0.28v0.79l5 4.99L20.49 19l-4.99-5zm-6.62 0c-2.76 0-5-2.25-5-5s2.24-5 5-5 5 2.25 5 5-2.24 5-5 5z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </form>
-        </section>
-      </div>
+            <section class="search-wrap">
+                <label for="q" class="search-label">Search for a Movie or TV show</label>
+                <form class="search-form" action="search.html" method="get">
+                    <div class="search-container">
+                        <select id="type" name="type">
+                            <option value="movie">Movie</option>
+                            <option value="tv">TV Show</option>
+                        </select>
+                        <input id="q" name="q" type="text" placeholder="e.g. Howl's Moving Castle, Stranger Things…"
+                            required />
+                        <button type="submit" aria-label="Search">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path
+                                    d="M15.5 14h-0.79l-0.28-0.27a6.471 6.471 0 001.48-5.34C15.12 5.88 12.24 3 8.88 3S2.64 5.88 2.64 9.39c0 3.51 2.88 6.39 6.39 6.39 1.61 0 3.09-0.59 4.24-1.58l0.27 0.28v0.79l5 4.99L20.49 19l-4.99-5zm-6.62 0c-2.76 0-5-2.25-5-5s2.24-5 5-5 5 2.25 5 5-2.24 5-5 5z" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <p>&copy; 2025 The Rating Guide</p>
-      </div>
+        <div class="container">
+            <p>&copy; 2025 The Rating Guide</p>
+        </div>
     </footer>
-    <script src="scripts/home.js" defer></script>
-  </body>
+    <script type="module" src="scripts/home.js"></script>
+</body>
+
 </html>

@@ -1,56 +1,61 @@
-async function loadStats() {
-    const KEY = 'searchStats';
-    let stats = JSON.parse(localStorage.getItem(KEY));
+import { initNavigation } from './nav.js';
+import { loadStats } from './stats.js';
 
-    if (!stats) {
-        try {
-            const res = await fetch('assets/data/searches.json');
-            if (!res.ok) throw new Error(res.statusText);
-            stats = await res.json();
-        } catch (err) {
-            console.error('Failed to fetch searches.json:', err);
-            stats = { movies: [], tv: [] };
-        }
-    }
+const TMDB_KEY = 'f395f6fa4d3341c013cac38bed5813ec';
 
-    stats.movies.sort((a, b) => b.count - a.count);
-    stats.tv.sort((a, b) => b.count - a.count);
-
-    localStorage.setItem(KEY, JSON.stringify(stats));
-
-    return stats;
-}
-
-
-
-document.addEventListener('DOMContentLoaded', async () => {
-    const links = document.querySelectorAll('.nav-list a');
-    const page = location.pathname.split('/').pop() || 'index.html';
-    links.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === page);
-    });
+async function main() {
+    initNavigation();
 
     const stats = await loadStats();
 
-    const populate = (arr, id) => {
-        const ol = document.getElementById(id);
-        ol.innerHTML = '';
-        arr.slice(0, 10).forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = `${item.title} (${item.count})`;
-            ol.appendChild(li);
-        });
-    };
+    const top15 = [
+        ...stats.movies.map(m => ({ ...m, media: 'Movie' })),
+        ...stats.tv.map(t => ({ ...t, media: 'TV Show' }))
+    ]
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 15);
 
-    populate(stats.movies, 'topMovies');
-    populate(stats.tv, 'topShows');
+    const cards = await Promise.all(top15.map(async item => {
+        const path = item.media === 'Movie' ? 'movie' : 'tv';
+        const res = await fetch(
+            `https://api.themoviedb.org/3/search/${path}` +
+            `?api_key=${TMDB_KEY}&query=${encodeURIComponent(item.title)}`
+        );
+        const info = ((await res.json()).results || [])[0] || {};
+        return {
+            title: item.title,
+            type: item.media,
+            searches: item.count,
+            releaseDate: info.release_date || info.first_air_date || 'Unknown',
+            tmdbRating: info.vote_average != null ? info.vote_average : '—',
+            poster: info.poster_path
+                ? `https://image.tmdb.org/t/p/w300${info.poster_path}`
+                : 'images/placeholder.webp'
+        };
+    }));
+
+    const container = document.getElementById('dynamic-container');
+    container.innerHTML = cards.map(d => `
+    <article class="card">
+      <img src="${d.poster}" alt="${d.title} poster" loading="lazy">
+      <h3>${d.title}</h3>
+      <p><strong>Type:</strong> ${d.type}</p>
+      <p><strong>Searches:</strong> ${d.searches}</p>
+      <p><strong>Release:</strong> ${d.releaseDate}</p>
+      <p><strong>Rating:</strong> ${d.tmdbRating}</p>
+    </article>
+  `).join('');
 
     const form = document.querySelector('.search-form');
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        const q = form.q.value.trim();
-        if (!q) return;
+    if (form) {
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const q = form.q.value.trim();
+            const t = form.type.value;
+            if (!q) return;
+            location.href = `search.html?q=${encodeURIComponent(q)}&type=${t}`;
+        });
+    }
+}
 
-        window.location.href = `search.html?q=${encodeURIComponent(q)}`;
-    });
-});
+document.addEventListener('DOMContentLoaded', main);
